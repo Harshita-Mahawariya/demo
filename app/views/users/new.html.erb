@@ -1,0 +1,26 @@
+<h1> Login form </h1>
+
+<%= form_with model: @user, url:"/users" , method:"post" do |form| %>
+
+  <div>
+    <%= form.label :login %><br>
+    <%= form.text_field :login %><br>
+    <% @user.errors.full_messages_for(:login).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :email %><br>
+    <%= form.text_area :email %><br>
+    <% @user.errors.full_messages_for(:email).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+Create User
+  <div>
+    <%= form.submit %> 
+  </div>
+
+  <% end %>
