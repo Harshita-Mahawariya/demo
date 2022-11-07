@@ -1,0 +1,96 @@
+<h1>Checkbox</h1>
+<p>
+	<%= form_with model: @person, url:"/homes" , method:"post" do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% @person.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+
+    <div>
+    <%= form.label :level %><br>
+    <%= form.text_field :level%><br>
+    <% @person.errors.full_messages_for(:level).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %><br>
+    <% @person.errors.full_messages_for(:description).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :check_box %><br>
+    <%= form.check_box :check_box %><br>
+    <% @person.errors.full_messages_for(:check_box).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.radio_button :gender, "man" %>
+    <%= form.label :gender_man, "I am man" %>
+    <%= form.radio_button :gender, "woman" %>
+    <%= form.label :gender_woman, "I am woman" %>
+    <% @person.errors.full_messages_for(:gender).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+   <div>
+    <%= form.label :email %><br>
+    <%= form.text_field :email %><br>
+    <% @person.errors.full_messages_for(:email).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+    <div>
+    <%= form.label :email_confirmation %><br>
+    <%= form.text_field :email_confirmation %><br>
+    <% @person.errors.full_messages_for(:email_confirmation).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+    <div>
+    <%= form.label :password %><br>
+    <%= form.text_field :password%><br>
+    <% @person.errors.full_messages_for(:password).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+ <div>
+    <%= form.label :password_c %><br>
+    <%= form.text_field :password_c %><br>
+    <% @person.errors.full_messages_for(:password_c).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+
+  <% if @person.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@person.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+    <ul>
+      <% @person.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+<h1>Homes#index</h1>
+<h1> HI homes from demo</h1>
+<h1>Model Person</h1>
+<div>
+<ul>
+  <% @homes.each do |h| %>
+    <li>
+      <a href="/home/<%= h.id %>">
+        <%= h.name %></a>
+    </li>
+  <% end %>
+</ul>
+To go on form click here 
+<p>
+<%= link_to "New", homes_new_path, method: :post%>
+</p>
+</div>
