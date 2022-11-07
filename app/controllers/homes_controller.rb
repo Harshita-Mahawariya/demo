@@ -4,6 +4,9 @@ class HomesController < ApplicationController
      @homes = Person.all
   end
 
+
+  
+
   def show
     @home = Person.find(params[:id])
   end
